@@ -1,12 +1,12 @@
 import { AsyncStorage } from 'react-native'
 
-export const STORAGE_KEY = 'UdaciMobileFlashCard:decks03';
+export const STORAGE_KEY = 'flashCards:decks';
 
 
 export function readyData () {
     let readyData ={
         Deck1: {
-            title: 'Deck 1',
+            title: 'Deck1',
             questions: [
                 {
                     question: 'What is your Name',
@@ -19,7 +19,7 @@ export function readyData () {
             ]
         },
         Deck2: {
-            title: 'Deck 2',
+            title: 'Deck2',
             questions: [
                 {
                     question: 'How are you?',

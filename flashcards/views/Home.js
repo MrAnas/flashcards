@@ -2,10 +2,17 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { connect } from 'react-redux';
 import { white, primary, gray, black } from '../theme/theme'
+import { fetchDecks } from "../api/api";
 
 class Home extends Component {
+
     render(){
-        const cardsNumber = this.props.decks[this.props.title].questions.length;
+        let cardsNumber = 0;
+        console.log(this.props.decks["Deck2"]);
+        console.log(this.props.title);
+        if (this.props.decks[this.props.title].questions !== undefined){
+            cardsNumber = this.props.decks[this.props.title].questions.length;
+        }
         return (
             <View style={styles.deck}>
                 <Text style={styles.deckTitle}>{this.props.title}</Text>
