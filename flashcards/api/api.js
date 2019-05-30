@@ -2,7 +2,7 @@
 
 import { AsyncStorage } from 'react-native'
 import {STORAGE_KEY,
-     readyData} from "../utils/_decks";
+     readyData} from "../_DATA";
 
 
 // Save Deck
