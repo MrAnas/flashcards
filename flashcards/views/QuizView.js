@@ -54,7 +54,7 @@ class QuizView extends Component {
                 {showResult
                     ? (
                         <View>
-                            <Text style={styles.text}>We have {statisticCorrectAnswer} correct answers !</Text>
+                            <Text Style={styles.text}> {statisticCorrectAnswer} questions solved </Text>
                             <TouchableOpacity style={styles.button} onPress={() => {
                                 this.setState({
                                     showAnswer: false,
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     },
     answerBtnsBox: {
         margin: 25,
-        alignItems: 'center',
+        alignItems: 'flex-start',
     },
     correct: {
         backgroundColor: green,
