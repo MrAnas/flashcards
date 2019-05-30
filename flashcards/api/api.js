@@ -8,7 +8,7 @@ import {
 
 
 // Save Deck
-export function saveDeck(title) {
+export function saveNewDeck(title) {
     return AsyncStorage.mergeItem(STORAGE_KEY, JSON.stringify(
         {
             [title]: {
@@ -21,25 +21,6 @@ export function saveDeck(title) {
             console.log('Error: cant save new deck')
         });
 }
-
-// Fetch Decks
-export function fetchDecks() {
-    return AsyncStorage.getItem(STORAGE_KEY)
-        .then((decks) => {
-            if (decks === null)
-                readyData()
-                    .then((response) => {
-                        fetchDecks();
-                    })
-                    .catch(() => {
-                        console.log('error');
-                    });
-            else {
-                return JSON.parse(decks);
-            }
-        });
-}
-
 
 // Save  Added Question
 export function saveNewQuestion({ deckTitle, question, answer }) {
@@ -71,16 +52,22 @@ export function saveNewQuestion({ deckTitle, question, answer }) {
 
 }
 
+// Fetch Decks
+export function fetchDecks() {
+    return AsyncStorage.getItem(STORAGE_KEY)
+        .then((decks) => {
+            if (decks === null)
+                readyData()
+                    .then((response) => {
+                        fetchDecks();
+                    })
+                    .catch(() => {
+                        console.log('error');
+                    });
+            else {
+                return JSON.parse(decks);
+            }
+        });
+}
 
 
-
-
-// export function removeEntry (key) {
-//     return AsyncStorage.getItem()
-//         .then((response) => {
-//             const data = JSON.parse(response);
-//             data[key] = undefined;
-//             delete data[key];
-//             AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(data))
-//         })
-// }
