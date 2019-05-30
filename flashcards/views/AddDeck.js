@@ -87,10 +87,10 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 30,
         backgroundColor: white,
-        alignItems: 'start',
+        alignItems: 'flex-start',
     },
     formBox: {
-        justifyContent: 'start',
+        justifyContent: 'flex-start',
         alignItems: 'stretch'
     },
     text: {

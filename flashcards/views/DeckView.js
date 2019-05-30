@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
         padding: 25,
     },
     startQuizButton: {
-        backgroundColor: black,
+        backgroundColor: primary,
         borderColor: primary,
         borderWidth: 2,
         borderRadius: 5,

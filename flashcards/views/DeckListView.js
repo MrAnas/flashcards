@@ -63,7 +63,7 @@ class DeckListView extends Component {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        justifyContent: 'start',
+        justifyContent: 'flex-start',
         backgroundColor: white,
         padding: 25
     },

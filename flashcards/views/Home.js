@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { connect } from 'react-redux';
-import { white, primary, gray } from '../theme/theme'
+import { white, primary, gray, black } from '../theme/theme'
 
 class Home extends Component {
     render(){
@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
         marginTop: 5,
         height: 65,
         backgroundColor: white,
-        justifyContent: 'left',
-        alignItems: 'left',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
     },
     deckTitle: {
         fontSize: 20,
