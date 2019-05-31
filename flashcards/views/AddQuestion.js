@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import {View, Text, TouchableOpacity, StyleSheet, TextInput} from 'react-native'
 import { connect } from 'react-redux';
-import {saveQuestion} from "../api/api";
-import {saveNewQuestion} from "../redux/actions";
+import {saveNewQuestion} from "../api/api";
+import {saveQuestion} from "../redux/actions";
 import {gray, primary, white} from "../theme/theme";
 
 class AddQuestion extends Component {
@@ -19,7 +19,7 @@ class AddQuestion extends Component {
             answer: this.state.answer
         };
 
-        saveQuestion(card)
+        saveNewQuestion(card)
             .then( () => {
                 this.props.dispatch(saveQuestion(card))
             })

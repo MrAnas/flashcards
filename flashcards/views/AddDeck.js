@@ -29,7 +29,7 @@ class AddDeck extends Component {
             Alert.alert("the title is already existing")
             return
         } else {
-            saveDeck(this.state.title)
+            saveNewDeck(this.state.title)
                 .then(() => {
                     return this.props.dispatch(saveDeck(
                         {
