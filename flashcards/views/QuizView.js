@@ -56,7 +56,7 @@ class QuizView extends Component {
                 {showResult
                     ? (
                         <View>
-                            <Text Style={styles.text}> {statisticCorrectAnswer} questions solved </Text>
+                            <Text style={styles.text}> {statisticCorrectAnswer} questions solved </Text>
                             <TouchableOpacity style={styles.button} onPress={() => {
                                 this.setState({
                                     showAnswer: false,
