@@ -158,22 +158,23 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     button: {
-        paddingTop: 25,
+        paddingTop: 20,
         borderRadius: 2,
-        height: 55,
+        height: 60,
         marginLeft: 50,
         marginRight: 50,
         marginTop: 30,
         width: 250,
         height: 60,
+        backgroundColor: primary
     },
     buttonText: {
         color: white,
         fontSize: 25,
     },
     answerBtnsBox: {
-        margin: 25,
-        alignItems: 'flex-start',
+        margin: 20,
+        alignItems: 'center',
     },
     correct: {
         backgroundColor: green,
