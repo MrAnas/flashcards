@@ -75,7 +75,11 @@ class QuizView extends Component {
                                     { title: this.props.title }
                                 )
                             }}>
-                                <Text style={styles.buttonText}>
+                                <Text onpress={()=>{
+                                    this.props.navigation.navigate(
+                                    'DeckView',
+                                    { title: this.props.title }
+                                )}} style={styles.buttonText}>
                                     Back to Deck
                                 </Text>
                             </TouchableOpacity>
