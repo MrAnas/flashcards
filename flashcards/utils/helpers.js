@@ -8,7 +8,7 @@ export function clearLocalNotification() {
         .then(Notifications.cancelAllScheduledNotificationsAsync);
 }
 
-function createNotification() {
+export function createNotification() {
     return {
         title: 'Take some time to do a small quiz',
         body: "quick test will boost your smartness!",
