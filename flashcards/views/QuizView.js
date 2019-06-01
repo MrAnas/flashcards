@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { connect } from 'react-redux';
 import { primary, white, red, green } from "../theme/theme";
 
-import {createNotification } from '../utils/helpers';
+import {setLocalNotification } from '../utils/helpers';
 class QuizView extends Component {
     state = {
         showAnswer: false,
@@ -31,7 +31,7 @@ class QuizView extends Component {
             const newCurrentQuestion = prevState.currentQuestion + 1;
             const increseCorrect = correct ? 1 : 0;
             if (cardsNumber == newCurrentQuestion) {
-                createNotification();
+                setLocalNotification();
                 return {
                     showResult: true,
                     statisticCorrectAnswer: prevState.statisticCorrectAnswer + increseCorrect,
