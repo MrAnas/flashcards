@@ -22,11 +22,11 @@ class AddDeck extends Component {
 
     onSaveDeck = () => {
         if (this.state.title === null) {
-            Alert.alert("please provide a title")
+            Alert.alert("please provide title")
             return
         }
         if (this.props.decks[this.state.title]) {
-            Alert.alert("the title is already existing")
+            Alert.alert("the title is exists already")
             return
         } else {
             saveNewDeck(this.state.title)
@@ -46,7 +46,7 @@ class AddDeck extends Component {
                         { title: this.state.title }
                     )
                 })
-                .catch((error) => console.warn('Error cant navigate', error));
+                .catch((error) => console.warn('Error: cant navigate', error));
         }
     };
 
@@ -61,8 +61,8 @@ class AddDeck extends Component {
                         value={this.state.title}
                     />
                     <TouchableOpacity style={styles.button} onPress={this.onSaveDeck}>
-                        <Text style={styles.buttonText}>
-                            Save
+                        <Text style={styles.buttontext}>
+                            Save Deck
                         </Text>
                     </TouchableOpacity>
                 </View>
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         margin: 25,
     },
-    buttonText: {
+    buttontext: {
         color: white,
         fontSize: 25,
     },

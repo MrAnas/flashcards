@@ -13,13 +13,7 @@ class DeckView extends Component {
             { title: this.props.title }
         )
     };
-    static navigationOptions = ({ navigation }) => {
-        const { title } = navigation.state.params
 
-        return {
-            title
-        }
-    }
 
     static navigationOptions = ({ navigation }) => {
         const { entryId } = navigation.state.params
@@ -30,7 +24,7 @@ class DeckView extends Component {
     }
 
     
-    startQuiz = () => {
+    start = () => {
         this.props.navigation.navigate(
             'QuizView',
             { title: this.props.title }
@@ -38,17 +32,17 @@ class DeckView extends Component {
     };
 
     render() {
-        const { title, decks } = this.props;
+        const { title } = this.props;
         return (
             <View style={styles.container}>
                 <Home title={title} />
                 <View style={styles.buttonsContainer}>
                     <TouchableOpacity style={styles.addCardButton} onPress={this.addCard}>
                         <Text style={styles.addCardText}>
-                            Add New Card
+                            Add New Card to the deck
                         </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.startQuizButton} onPress={this.startQuiz}>
+                    <TouchableOpacity style={styles.startQuizButton} onPress={this.start}>
                         <Text style={styles.startQuizText}>
                             Start
                         </Text>

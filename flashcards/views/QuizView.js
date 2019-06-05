@@ -6,41 +6,41 @@ import { primary, white, red, green } from "../theme/theme";
 import {setLocalNotification } from '../utils/helpers';
 class QuizView extends Component {
     state = {
-        showAnswer: false,
+        viewAnswer: false,
         currentQuestion: 0,
         showResult: false,
-        statisticCorrectAnswer: 0,
+        noCorrectAnswers: 0,
     };
 
     static navigationOptions = ({ navigation }) => {
         const { title } = navigation.state.params
 
         return {
-            title: `${title} Quiz`
+            title: `${title}`
         }
     }
 
-    showAnswer = () => {
+    viewAnswer = () => {
         this.setState({
-            showAnswer: true,
+            viewAnswer: true,
         })
     };
 
     nextQuestion = (cardsNumber, correct) => {
         this.setState((prevState) => {
             const newCurrentQuestion = prevState.currentQuestion + 1;
-            const increseCorrect = correct ? 1 : 0;
+            const incrementCorrectAnswers = correct ? 1 : 0;
             if (cardsNumber == newCurrentQuestion) {
                 setLocalNotification();
                 return {
                     showResult: true,
-                    statisticCorrectAnswer: prevState.statisticCorrectAnswer + increseCorrect,
+                    noCorrectAnswers: prevState.noCorrectAnswers + incrementCorrectAnswers,
                 }
             } else {
                 return {
                     currentQuestion: newCurrentQuestion,
-                    showAnswer: false,
-                    statisticCorrectAnswer: prevState.statisticCorrectAnswer + increseCorrect,
+                    viewAnswer: false,
+                    noCorrectAnswers: prevState.noCorrectAnswers + incrementCorrectAnswers,
                 }
             }
         })
@@ -48,7 +48,7 @@ class QuizView extends Component {
 
     render() {
         const { decks, title } = this.props;
-        const { currentQuestion, showResult, showAnswer, statisticCorrectAnswer } = this.state;
+        const { currentQuestion, showResult, viewAnswer, noCorrectAnswers } = this.state;
         const cardsNumber = decks[title].questions.length;
         const questions = decks[title].questions;
         return (
@@ -56,16 +56,16 @@ class QuizView extends Component {
                 {showResult
                     ? (
                         <View>
-                            <Text style={styles.text}> {statisticCorrectAnswer} questions solved </Text>
+                            <Text style={styles.text}> {noCorrectAnswers} questions solved </Text>
                             <TouchableOpacity style={styles.button} onPress={() => {
                                 this.setState({
-                                    showAnswer: false,
+                                    viewAnswer: false,
                                     currentQuestion: 0,
                                     showResult: false,
-                                    statisticCorrectAnswer: 0,
+                                    noCorrectAnswers: 0,
                                 })
                             }}>
-                                <Text style={styles.buttonText}>
+                                <Text style={styles.buttontext}>
                                     Restart Quiz
                                 </Text>
                             </TouchableOpacity>
@@ -79,7 +79,7 @@ class QuizView extends Component {
                                     this.props.navigation.navigate(
                                     'DeckView',
                                     { title: this.props.title }
-                                )}} style={styles.buttonText}>
+                                )}} style={styles.buttontext}>
                                     Back to Deck
                                 </Text>
                             </TouchableOpacity>
@@ -92,13 +92,13 @@ class QuizView extends Component {
                                 {questions[currentQuestion].question}
 
                             </Text>
-                            {showAnswer && (<Text style={styles.text}>
+                            {viewAnswer && (<Text style={styles.text}>
                                 {questions[currentQuestion].answer}
                             </Text>)}
                             {
                                 <View style={styles.formBox}>
-                                    {(!showAnswer &&
-                                        <TouchableOpacity style={styles.button} onPress={this.showAnswer}>
+                                    {(!viewAnswer &&
+                                        <TouchableOpacity style={styles.button} onPress={this.viewAnswer}>
                                             <Text style={styles.answerText}>
                                                 Show Answer
                                             </Text>
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
         height: 60,
         backgroundColor: primary
     },
-    buttonText: {
+    buttontext: {
         color: white,
         fontSize: 25,
     },

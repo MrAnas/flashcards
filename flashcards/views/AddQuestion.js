@@ -32,15 +32,13 @@ class AddQuestion extends Component {
     };
 
     static navigationOptions = ({ navigation }) => {
-        const { title } = navigation.state.params
 
         return {
-            title: `${title} Add Card`
+            title: `Add Card`
         }
     }   
 
     render(){
-        const { decks, title } = this.props;
         return (
             <View style={styles.container}>
                 <View style={styles.formBox}>
@@ -55,8 +53,8 @@ class AddQuestion extends Component {
                         value={this.state.answer}
                     />
                     <TouchableOpacity style={styles.button} onPress={this.onSaveCard}>
-                        <Text style={styles.buttonText}>
-                            Save
+                        <Text style={styles.buttontext}>
+                            Save 
                         </Text>
                     </TouchableOpacity>
                 </View>
@@ -109,7 +107,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         margin: 25,
     },
-    buttonText :{
+    buttontext :{
         color: white,
         fontSize: 25,
     },

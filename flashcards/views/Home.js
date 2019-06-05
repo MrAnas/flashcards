@@ -8,8 +8,6 @@ class Home extends Component {
 
     render(){
         let cardsNumber = 0;
-        console.log(this.props.decks["Deck2"]);
-        console.log(this.props.title);
         if (this.props.decks[this.props.title].questions !== undefined){
             cardsNumber = this.props.decks[this.props.title].questions.length;
         }

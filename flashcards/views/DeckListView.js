@@ -21,7 +21,7 @@ class DeckListView extends Component {
             .then(() => this.setState(() => ({ ready: true })))
     }
 
-    renderItem = ({ item }) => (
+    renderDeck = ({ item }) => (
         <TouchableOpacity style={styles.deck}
             key={item.title}
             onPress={() => this.props.navigation.navigate(
@@ -34,7 +34,7 @@ class DeckListView extends Component {
 
     render() {
         let data = Object.values(this.props.decks).sort(
-            (a, b) => a.title > b.title,
+            (deck1, deck2) => deck1.title > deck2.title,
         )
         let decksResult = (<Text>Nothing to show here</Text>);
 
@@ -54,7 +54,7 @@ class DeckListView extends Component {
         }
         return (
             <View style={styles.container}>
-                <FlatList data={data} renderItem={this.renderItem} keyExtractor={(item, index) => index.toString()} />
+                <FlatList data={data} renderDeck={this.renderDeck} keyExtractor={(item, index) => index.toString()} />
             </View>
         )
     }

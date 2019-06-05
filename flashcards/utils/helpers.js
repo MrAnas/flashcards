@@ -13,10 +13,10 @@ export function createNotification() {
         title: 'Take some time to do a small quiz',
         body: "quick test will boost your smartness!",
         ios: {
-            sound: true,
+            sound: false,
         },
         android: {
-            sound: true,
+            sound: false,
             priority: 'low',
             sticky: false,
             vibrate: true,
